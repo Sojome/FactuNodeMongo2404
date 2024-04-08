@@ -1,0 +1,101 @@
+<!-- crud-facturas.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Control</title>
+  <link rel="stylesheet" type="text/css" href="/css/estilocrud.css">
+  <script src="https://kit.fontawesome.com/635ad548e0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <h1>FACTURAS</h1>
+      <nav>
+        <ul>
+              <li>
+                <a href="crud-facturas"><span class="icon-file-text2"></span>Facturas</a>
+              </li>
+              <li>
+                    <a href="dashboard"><span class="icon-exit"></span>Volver</a>
+                </li>
+        </ul>
+       </nav>
+    </aside>
+
+    <div id="dynamic-content-container" class="content-container">
+      <h1>FACTURACION DE PRODUCTOS</h1>
+    <section class="add-contact">
+        <h1>Añadir item:</h1>
+        <form method="post" action="/factura">
+		      <label for="num_fac">Numero factura:</label>
+          <input type="text" name="num_fac" required>
+                    
+          <label for="ruc_cliente">Ruc cliente:</label>
+          <input type="text" name="ruc_cliente" required>
+
+          <label for="cliente">Nombre cliente:</label>
+          <input type="text" name="cliente" required>
+
+          <label for="subtotal">Subtotal:</label>
+          <input type="number" name="subtotal" required>
+
+          <label for="IGV">Impuesto:</label>
+          <input type="number" name="IGV" required>
+
+          <label for="total">Total:</label>
+          <input type="number" name="total" required>
+
+          <button type="submit">Guardar factura</button>
+        </form>
+      </section>
+          
+<section class="contact-list">
+        <h2>Lista de facturas:</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>No.factura</th>
+              <th>Ruc cliente</th>
+              <th>Cliente</th>
+              <th>Subtotal</th>
+              <th>Impuesto</th>
+              <th>Total</th>
+              <th>Detalle</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% facturas.forEach(function(factura) { %>
+              <tr>
+                <td><%= factura.num_fac %></td>
+                <td><%= factura.ruc_cliente %></td>
+                <td><%= factura.cliente %></td>
+                <td><%= factura.subtotal %></td>
+                <td><%= factura.IGV %></td>
+                <td><%= factura.total %></td>
+                <td>
+                  <form method="post" action="/factura/<%= factura._id %>/eliminar" style="display: inline;">
+                    <input type="hidden" name="facturaId" value="<%= factura._id %>">
+                    <button type="submit">Detalle</button>
+                  </form>
+                </td>
+                <td>
+                  <form method="post" action="/factura/<%= factura._id %>/eliminar" style="display: inline;">
+                    <input type="hidden" name="facturaId" value="<%= factura._id %>">
+                    <button type="submit">Eliminar</button>
+                  </form>
+                </td>
+              </tr>
+            <% }); %>
+            
+
+          </tbody>
+        </table>
+      </section>									
+    </div>
+  </div>
+</body>
+</html>

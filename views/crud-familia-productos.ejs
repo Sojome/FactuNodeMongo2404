@@ -1,0 +1,79 @@
+<!-- crud.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Control</title>
+  <link rel="stylesheet" type="text/css" href="/css/estilocrud.css">
+  <script src="https://kit.fontawesome.com/635ad548e0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <h1>Catalogo</h1>
+      <nav>
+        <ul>
+              <li>
+                <a href="crud-productos"><span class="icon-file-text2"></span>Productos</a>
+              </li>
+              <li>
+                <a href="crud-familia-productos"><span class="icon-file-text2"></span>Familia de productos</a>
+              </li>
+          <li>
+            <a href="dashboard"><span class="icon-exit"></span>Volver</a>
+          </li>
+        </ul>
+       </nav>
+    </aside>
+
+    <div id="dynamic-content-container" class="content-container">
+      <h1>Formulario CRUD-FAMILIA DE PRODUCTOS</h1>
+ 
+      <section class="add-contact">
+        <h1>Añadir familia:</h1>
+        <form method="post" action="/familia">
+		      <label for="codigo">Código:</label>
+          <input type="text" name="codigo" required>
+                    
+          <label for="nombreFamilia">Nombre familia:</label>
+          <input type="text" name="nombreFamilia" required>
+
+          <button type="submit">Guardar familia</button>
+        </form>
+      </section>
+    
+     
+<section class="contact-list">
+        <h2>Lista de familias:</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Codigo</th>
+              <th>Familia</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% familias.forEach(function(familia) { %>
+              <tr>
+                <td><%= familia.codigo %></td>
+                <td><%= familia.nombreFamilia %></td>
+                <td>
+                  <form method="post" action="/familia/<%= familia._id %>/eliminar" style="display: inline;">
+                    <input type="hidden" name="familiaId" value="<%= familia._id %>">
+                    <button type="submit">Eliminar</button>
+                  </form>
+                </td>
+              </tr>
+            <% }); %>
+            
+
+          </tbody>
+        </table>
+      </section>									
+    </div>
+  </div>
+</body>
+</html>

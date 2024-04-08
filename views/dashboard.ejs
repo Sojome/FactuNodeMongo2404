@@ -1,0 +1,54 @@
+<!-- dashboard.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Control</title>
+  <script src="https://kit.fontawesome.com/635ad548e0.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="/css/estilodashboard.css">
+ 
+</head>
+
+<body>
+  <div class="menu_bar"> 
+    <aside class="sidebar">
+      <h2>MENÚ PRINCIPAL</h2>
+      <nav>
+        <ul>
+          <li>
+            <a href="">Catálogos<span class="icon-dot"></span></a>
+            <ul class="submenu">
+              <li>
+                <a href="crud-productos"><span class="icon-file-text2"></span>Productos</a>
+              </li>
+              <li>
+                <a href="crud-familia-productos"><span class="icon-file-text2"></span>Familia de productos</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="">Documentos<span class="icon-dot"></span></a>
+            <ul class="submenu">
+              <li>
+                <a href="crud-facturas"><span class="icon-file-text2"></span>Facturas</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#"><span class="icon-file-text2"></span>Contactenos</a>
+          </li>
+          <li>
+            <a href="login-propuesto"><span class="icon-exit"></span>Cerrar sesión</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Contenedor para el contenido dinámico -->
+    <div id="dynamic-content-container" class="content-container">
+      <!-- Contenido dinámico se cargará aquí -->
+    </div>
+  </div>
+</body>
+</html>

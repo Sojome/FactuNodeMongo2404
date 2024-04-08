@@ -1,0 +1,53 @@
+<!-- login-propuesto.ejs -->
+<!DOCTYPE html>
+<html lang="en">			   
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de Sesión</title>
+	<!-- Enlace al archivo CSS -->
+	<link rel="stylesheet" type="text/css" href="/css/estilologin.css">
+	<link rel="stylesheet" type="text/css" href="/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/css/main3.css">
+</head>
+<body>
+	<div class="limiter">
+		<div class="container-login100" >
+			<div class="wrap-login100 p-t-85 p-b-20" style="padding-top:20px;">
+				<form action="/login-propuesto" method="post">
+					<center>
+						<img src="/images/logo.png" alt="Logo">
+					</center>
+					<span class="login100-form-title p-b-70" style="padding-bottom:1px;margin-bottom:5px;">
+						MI FACTURACIÓN
+					</span>
+					<p>
+					<p>
+					<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username" style="margin-top:10px;padding-top:10px;">
+						<input class="input100" type="text" name="username">
+						<span class="focus-input100" data-placeholder="Usuario"></span>
+					</div>
+					<div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
+						<input class="input100" type="password" name="password">
+						<span class="focus-input100" data-placeholder="Clave"></span>
+					</div>
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Iniciar sesion
+						</button>
+					</div>
+
+					<ul class="login-more p-t-190" style="padding-top:10px;">
+						<li class="m-b-8">
+					   <a href="/register"> <p>SIN CUENTA... REGISTRATE</p> </a>
+						</li>
+							
+					</ul>
+          <p>¿No tienes una cuenta? <a href="/register">Regístrate</a></p>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
