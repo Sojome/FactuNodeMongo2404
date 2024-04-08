@@ -21,4 +21,15 @@ router.get('/dashboard', (req, res) => {
   res.render('dashboard');
 });
 
+router.get('/register', (req, res) => {
+  res.render('registro');
+});
+
+router.post('/register', async (req, res) => {
+  const { username, password } = req.body;
+  const user = new User({ username, password });
+  await user.save();
+  res.redirect('login-propuesto');
+});
+
 module.exports = router;
